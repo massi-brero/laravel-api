@@ -3,19 +3,19 @@
 namespace App\Http\Controllers\ApiControllers;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\Product\ProductResource;
 use App\Model\Product;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
-    /**
-     * Display a listing of the resource.
+    /*Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        //
+        return Product::all();
     }
 
     /**
@@ -47,7 +47,7 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
-        //
+        return new ProductResource($product);
     }
 
     /**
