@@ -2,9 +2,9 @@
 
 namespace App\Http\Resources\Product;
 
-use Illuminate\Http\Resources\Json\JsonResource;
 
-class ProductResource extends JsonResource
+
+class ProductResource extends ProductResourceAbstract
 {
     /**
      * Transform the resource into an array.
@@ -18,8 +18,13 @@ class ProductResource extends JsonResource
             'name' => $this->name,
             'description' => $this->detail,
             'price' => $this->price,
+            'totalPrice' =>  $this->getDiscountedPrice(),
             'stock' => $this->stock,
             'discount' => $this->discount,
+            'rating' => $this->getStarsAverage(),
+            'href' => [
+                'reviews' => route('reviews.index', $this->id)
+            ]
         ];
     }
 }
