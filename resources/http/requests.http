@@ -3,6 +3,16 @@ content-type: application/json
 
 ###
 
+GET http://localhost:8888/api/products?page=3
+content-type: application/json
+
+###
+
 GET http://localhost:8888/api/products/1
+content-type: application/json
+
+###
+
+GET http://localhost:8888/api/products/10/reviews
 content-type: application/json
 
